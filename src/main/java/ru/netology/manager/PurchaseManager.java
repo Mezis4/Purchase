@@ -31,7 +31,7 @@ public class PurchaseManager {
     }
 
     public boolean matches(Product product, String search) {
-        if (product.getName().contains(search)) {
+        if (product.matches(search)) {
             return true;
         } else {
             return false;

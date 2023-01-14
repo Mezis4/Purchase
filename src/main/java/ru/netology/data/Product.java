@@ -19,4 +19,11 @@ public class Product {
         return id;
     }
 
+    public boolean matches(String search) {
+        if (getName().contains(search)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
