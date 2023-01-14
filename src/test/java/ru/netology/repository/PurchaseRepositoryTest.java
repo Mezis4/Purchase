@@ -73,5 +73,4 @@ public class PurchaseRepositoryTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
-
 }
