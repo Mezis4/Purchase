@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import ru.netology.data.Product;
 import ru.netology.data.Book;
 import ru.netology.data.Smartphone;
+import ru.netology.exception.AlreadyExistsException;
+import ru.netology.exception.NotFoundException;
 
 public class PurchaseRepositoryTest {
     PurchaseRepository repo = new PurchaseRepository();
@@ -19,6 +21,7 @@ public class PurchaseRepositoryTest {
     Product smartphone3 = new Smartphone(40, "Xiaomi Redmi Note 10 Pro 8", 20_299, "Xiaomi");
     Product smartphone4 = new Smartphone(18, "Apple iPhone 13 mini ", 51_080, "Apple");
     Product smartphone5 = new Smartphone(69, "vivo Y35 4", 10_604, "vivo");
+    Product smartphone6 = new Smartphone(69, "vivo Y35 4", 10_604, "vivo");
 
     @BeforeEach
     void setup() {
@@ -32,6 +35,64 @@ public class PurchaseRepositoryTest {
         repo.save(smartphone3);
         repo.save(smartphone4);
         repo.save(smartphone5);
+    }
+
+    @Test
+    public void shouldRemoveById() {
+        repo.removeById(74);
+
+        Product[] expected = new Product[] {
+                book1,
+                book2,
+                book4,
+                book5,
+                smartphone1,
+                smartphone2,
+                smartphone3,
+                smartphone4,
+                smartphone5,
+        };
+        Product[] actual = repo.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldUseNotFoundException () {
+        Assertions.assertThrows(NotFoundException.class, () -> {
+            repo.removeById(1);
+        });
+    }
+
+    @Test
+    public void shouldAddNewProduct() {
+        repo.save(book6);
+
+        Product[] expected = new Product[] {
+                book1,
+                book2,
+                book3,
+                book4,
+                book5,
+                smartphone1,
+                smartphone2,
+                smartphone3,
+                smartphone4,
+                smartphone5,
+                book6
+        };
+
+        Product[] actual = repo.findAll();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldUseAlreadyExistsException() {
+
+        Assertions.assertThrows(AlreadyExistsException.class, () -> {
+            repo.save(smartphone6);
+        });
     }
 
     @Test
