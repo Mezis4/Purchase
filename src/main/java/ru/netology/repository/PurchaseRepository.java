@@ -1,4 +1,5 @@
 package ru.netology.repository;
+
 import ru.netology.data.Product;
 import ru.netology.exception.AlreadyExistsException;
 import ru.netology.exception.NotFoundException;
@@ -14,7 +15,7 @@ public class PurchaseRepository {
         Product[] purchase = new Product[product.length + 1];
         for (int i = 0; i < product.length; i++) {
             purchase[i] = product[i];
-            }
+        }
         purchase[purchase.length - 1] = item;
         product = purchase;
     }

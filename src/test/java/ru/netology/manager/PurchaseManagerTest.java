@@ -38,91 +38,91 @@ public class PurchaseManagerTest {
 
     @Test
     public void shouldSearchProductByNameOneWordAlsoCheckNumbers() {
-        Product[] expected = { smartphone1, smartphone4 };
+        Product[] expected = {smartphone1, smartphone4};
         Product[] actual = manager.searchBy("13");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldSearchProductByFullProductName() {
-        Product[] expected = { smartphone2 };
+        Product[] expected = {smartphone2};
         Product[] actual = manager.searchBy("Xiaomi POCO M5");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldSearchProductByAuthorOneWord() {
-        Product[] expected = { book1, book3, book4 };
+        Product[] expected = {book1, book3, book4};
         Product[] actual = manager.searchBy("Р.");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldSearchProductByFullAuthorName() {
-        Product[] expected = { book2 };
+        Product[] expected = {book2};
         Product[] actual = manager.searchBy("Франс де Валь");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldSearchProductByManufacturerOneWord() {
-        Product[] expected = { smartphone1, smartphone4 };
+        Product[] expected = {smartphone1, smartphone4};
         Product[] actual = manager.searchBy("Apple");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldSearchProductByFullManufacturerName() {
-        Product[] expected = { smartphone2, smartphone3 };
+        Product[] expected = {smartphone2, smartphone3};
         Product[] actual = manager.searchBy("Xiao mi");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldSearchProductByNameAndAuthor() {
-        Product[] expected = { book1, book3, book4 };
+        Product[] expected = {book1, book3, book4};
         Product[] actual = manager.searchBy("Толкин");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldSearchProductByNameAndManufacturer() {
-        Product[] expected = { smartphone1, smartphone4 };
+        Product[] expected = {smartphone1, smartphone4};
         Product[] actual = manager.searchBy("Apple");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldSearchOneProduct() {
-        Product[] expected = { smartphone5 };
+        Product[] expected = {smartphone5};
         Product[] actual = manager.searchBy("vivo Y35 4");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldSearchSeveralProducts() {
-        Product[] expected = { book1, book4 };
+        Product[] expected = {book1, book4};
         Product[] actual = manager.searchBy("Властелин колец");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldNotFindByNameNonexistentProduct() {
-        Product[] expected = { };
+        Product[] expected = {};
         Product[] actual = manager.searchBy("Возвращение короля");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldNotFindByWriterNonexistentProduct() {
-        Product[] expected = { };
+        Product[] expected = {};
         Product[] actual = manager.searchBy("Рю Мураками");
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void shouldNotFindByManufacturerNonexistentProduct() {
-        Product[] expected = { };
+        Product[] expected = {};
         Product[] actual = manager.searchBy("Samsung");
         Assertions.assertArrayEquals(expected, actual);
     }

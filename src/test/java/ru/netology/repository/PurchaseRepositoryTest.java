@@ -41,7 +41,7 @@ public class PurchaseRepositoryTest {
     public void shouldRemoveById() {
         repo.removeById(74);
 
-        Product[] expected = new Product[] {
+        Product[] expected = new Product[]{
                 book1,
                 book2,
                 book4,
@@ -58,7 +58,7 @@ public class PurchaseRepositoryTest {
     }
 
     @Test
-    public void shouldUseNotFoundException () {
+    public void shouldUseNotFoundException() {
         Assertions.assertThrows(NotFoundException.class, () -> {
             repo.removeById(1);
         });
@@ -68,7 +68,7 @@ public class PurchaseRepositoryTest {
     public void shouldAddNewProduct() {
         repo.save(book6);
 
-        Product[] expected = new Product[] {
+        Product[] expected = new Product[]{
                 book1,
                 book2,
                 book3,
@@ -97,7 +97,7 @@ public class PurchaseRepositoryTest {
 
     @Test
     public void shouldFindAllProducts() {
-        Product[] expected = new Product[] {
+        Product[] expected = new Product[]{
                 book1,
                 book2,
                 book3,
@@ -119,7 +119,7 @@ public class PurchaseRepositoryTest {
     public void shouldRemoveProductById() {
         repo.removeById(book3.getId());
 
-        Product[] expected = new Product[] {
+        Product[] expected = new Product[]{
                 book1,
                 book2,
                 book4,
